@@ -36,7 +36,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
+from .models import Post, Contact
 
 
 def home(request):
@@ -114,3 +114,14 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        content = request.POST['content']
+        contact = Contact(name=name, email=email, phone=phone, content=content)
+        contact.save()
+    return render(request, "blog/contact.html")

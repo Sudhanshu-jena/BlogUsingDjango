@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'blog',
+    'cloudinary',
     'users',
 
 ]
@@ -127,6 +131,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+cloudinary.config(
+  cloud_name = "dt3smgdxl",
+  api_key = "966776783421381",
+  api_secret = "Y85RIgHL1Etq4n6F1LqWCcT2Yo8"
+)
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'

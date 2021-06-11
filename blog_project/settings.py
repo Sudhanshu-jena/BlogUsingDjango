@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
-import cloudinary
-import cloudinary.uploader
+
 import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'blog',
-    'cloudinary',
     'users',
+    'cloudinary',
 
 ]
 
